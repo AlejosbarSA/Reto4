@@ -6,7 +6,7 @@ package tutoria;
 //4. Servicios
 //5. Controlador o Web
 
-// Categoria, Finca,Cliente,Mensaje y Reservacion
+// Categoria, Computer,Cliente,Mensaje y Reservacion
 
 
 

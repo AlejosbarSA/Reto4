@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tutoria.Modelo;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -29,7 +28,7 @@ public class Mensaje implements Serializable {
     @ManyToOne
     @JoinColumn(name="id")
     @JsonIgnoreProperties({"messages", "reservations"})
-    private Finca farm;
+    private Computer computer;
 
     @ManyToOne
     @JoinColumn(name="clientId")
@@ -52,12 +51,12 @@ public class Mensaje implements Serializable {
         this.messageText = messageText;
     }
 
-    public Finca getFarm() {
-        return farm;
+    public Computer getComputer() {
+        return computer;
     }
 
-    public void setFarm(Finca farm) {
-        this.farm = farm;
+    public void setComputer(Computer computer) {
+        this.computer = computer;
     }
 
     public Cliente getClient() {

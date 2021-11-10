@@ -4,8 +4,8 @@
  */
 package tutoria.Web;
 
-import tutoria.Modelo.Finca;
-import tutoria.Servicios.ServiciosFinca;
+import tutoria.Modelo.Computer;
+import tutoria.Servicios.ServiciosComputer;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,41 +27,41 @@ import org.springframework.web.bind.annotation.RestController;
  * @author USUARIO
  */
 @RestController
-@RequestMapping("/api/Farm")
+@RequestMapping("/api/Computer")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class FincaWeb {
+public class ComputerWeb {
      @GetMapping("/holaMundo")
     public String saludad(){
     return "Hola Mundo Tutoria";
     }
 
     @Autowired
-    private ServiciosFinca servicio;
+    private ServiciosComputer servicio;
     @GetMapping("all")
-    public List <Finca> getFinca(){
+    public List <Computer> getComputer(){
         return servicio.getAll();
     }
     
     @GetMapping("/{id}")
-    public Optional<Finca> getOrthesis(@PathVariable("id") int idFinca) {
-        return servicio.getFinca(idFinca);
+    public Optional<Computer> getOrthesis(@PathVariable("id") int idComputer) {
+        return servicio.getComputer(idComputer);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Finca save(@RequestBody Finca finca) {
-        return servicio.save(finca);
+    public Computer save(@RequestBody Computer computer) {
+        return servicio.save(computer);
     }
     
      @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Finca update(@RequestBody Finca finca) {
-        return servicio.update(finca);
+    public Computer update(@RequestBody Computer computer) {
+        return servicio.update(computer);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int fincaId) {
-        return servicio.deleteFinca(fincaId);
+    public boolean delete(@PathVariable("id") int computerId) {
+        return servicio.deleteComputer(computerId);
     }
 }

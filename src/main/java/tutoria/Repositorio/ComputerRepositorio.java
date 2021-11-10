@@ -9,32 +9,34 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import tutoria.Interface.InterfaceFinca;
-import tutoria.Modelo.Finca;
+import tutoria.Modelo.Computer;
+import tutoria.Interface.InterfaceComputer;
 
 /**
  *
  * @author USUARIO
  */
 @Repository
-public class FincaRepositorio {
+public class ComputerRepositorio {
       @Autowired
-    private InterfaceFinca crud;
+    private InterfaceComputer crud;
     
 
-    public List<Finca> getAll(){
-        return (List<Finca>) crud.findAll();       
+    public List<Computer> getAll(){
+        return (List<Computer>) crud.findAll();       
     }
     
-    public Optional <Finca> getFinca(int id){
+    public Optional <Computer> getComputer(int id){
         return crud.findById(id);
     }
     
-    public Finca save(Finca finca){
-        return crud.save(finca);
+    public Computer save(Computer computer){
+        return crud.save(computer);
     }
-     public void delete(Finca finca){
-        crud.delete(finca);
+     public void delete(Computer computer){
+        crud.delete(computer);
     }
+
+   
     
 }

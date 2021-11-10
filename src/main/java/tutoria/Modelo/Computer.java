@@ -22,8 +22,8 @@ import javax.persistence.Table;
  * @author USUARIO
  */
 @Entity
-@Table(name = "farm")
-public class Finca implements Serializable {
+@Table(name = "computer")
+public class Computer implements Serializable {
        @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -34,15 +34,15 @@ public class Finca implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="categoryid")
-    @JsonIgnoreProperties("farms")
+    @JsonIgnoreProperties("computers")
     private Categoria category;
     
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "farm")
-    @JsonIgnoreProperties({"farm","client"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "computer")
+    @JsonIgnoreProperties({"computer","client"})
     private List<Mensaje> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "farm")
-    @JsonIgnoreProperties({"farm","message"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "computer")
+    @JsonIgnoreProperties({"computer","message"})
     public List<Reservacion> reservations;
 
     public Integer getId() {

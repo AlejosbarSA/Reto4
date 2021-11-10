@@ -4,13 +4,13 @@
  */
 package tutoria.Interface;
 
-import tutoria.Modelo.Finca;
+import tutoria.Modelo.Computer;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author USUARIO
  */
-public interface InterfaceFinca extends CrudRepository<Finca,Integer>{
+public interface InterfaceComputer extends CrudRepository<Computer,Integer>{
     
 }
