@@ -26,42 +26,44 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author USUARIO
  */
+
 @RestController
 @RequestMapping("/api/Computer")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class ComputerWeb {
-     @GetMapping("/holaMundo")
-    public String saludad(){
-    return "Hola Mundo Tutoria";
+public class ComputerController {
+    @Autowired
+    private ServiciosComputer computerService;
+
+    @GetMapping("/all")
+    public List<Computer> getComputer(){
+
+        return computerService.getAll();
     }
 
-    @Autowired
-    private ServiciosComputer servicio;
-    @GetMapping("all")
-    public List<Computer> getComputer(){
-        return servicio.getAll();
-    }
-    
-    @GetMapping("/{id}")
-    public Optional<Computer> getComputer(@PathVariable("id") int idComputer) {
-        return servicio.getComputer(idComputer);
+    @GetMapping("/{idComputer}")
+    public Optional<Computer> getComputer (@PathVariable("idComputer") int id) {
+
+        return computerService.getComputer(id);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Computer save(@RequestBody Computer computer) {
-        return servicio.save(computer);
+
+        return computerService.save(computer);
     }
-    
-     @PutMapping("/update")
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
+
     public Computer update(@RequestBody Computer computer) {
-        return servicio.update(computer);
+
+        return computerService.update(computer);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int computerId) {
-        return servicio.deleteComputer(computerId);
+    public boolean delete(@PathVariable("id") int id) {
+        return computerService.deleteComputer(id);
     }
+
 }
