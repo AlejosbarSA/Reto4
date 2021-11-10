@@ -38,12 +38,12 @@ public class ComputerWeb {
     @Autowired
     private ServiciosComputer servicio;
     @GetMapping("all")
-    public List <Computer> getComputer(){
+    public List<Computer> getComputer(){
         return servicio.getAll();
     }
     
     @GetMapping("/{id}")
-    public Optional<Computer> getOrthesis(@PathVariable("id") int idComputer) {
+    public Optional<Computer> getComputer(@PathVariable("id") int idComputer) {
         return servicio.getComputer(idComputer);
     }
 
